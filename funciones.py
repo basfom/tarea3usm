@@ -45,7 +45,9 @@ def FilaNormal(hora):
 	arch.close() #Cierra archivo
 	fila.sort() #Ordenar la fila por hora de llegada
 	arch = open("Fila.txt", "w") #Abrir archivo FILA en modo ESCRITURA
-	for alumno in fila: #Recorrer la fila ordenada
+	for alumno in fila: #Recorrer la fila def EliminarPorHambre():
+	muertos = 0
+	ordenada
 		arch.write(alumno[1]+"\n") #Escribir el nombre del alumno
 	arch.close() #Cerrar el archivo
 	return None
@@ -54,7 +56,7 @@ def ProcesarHora(hora, cantidad, comida):
 	print "Hora:", hora
 	print "Cantidad de estudiantes", cantidad
 	print "Comida:", comida
-	comida = list(comida) #La tupla comida se transforma a tupla para poder editarla
+	comida = list(comida) #La tupla comida se transforma a lista para poder editarla
 	arch = open("Fila.txt")
 	i = 0 #Contador
 	for linea in arch:
@@ -87,11 +89,36 @@ def ProcesarHora(hora, cantidad, comida):
 	return 0, (0,0), tuple(comida)
 
 def ProcesarHambre():
-
-	return 0
+	arch = open("Fila.txt")
+	i = 0 #Contador
+	for linea in arch:
+		if i < cantidad:
+			nombre = linea.strip()
+			dicAlumnos[7] -= 1
+		else: # Si se supero el numero de ingresos por hora se cierra el ciclo
+			break
+		i +=1
+	arch.close()
+	return i + 1
 
 def EliminarPorHambre():
+	""""
+	muertos = 0
+	for nombre in dicAlumnos:
+		if dicAlumnos[nombre][7] == 0:
+			if dicAlumnos[nombre][9] == 1:
+				arch_temp = open("temp.txt", "w")
+				arch = open("Fila.txt")
+				for linea in arch:
+					nombre_fila = linea.strip()
+					if nombre_fila != nombre:
+						arch_temp.write(linea)
+				arch.close()
+				arch_temp.close()
+			arch_temp = open("temp.txt", "w")
+			arch = open("Alumnos.txt")
 
+	""""
 	return 0
 
 def Visualizar():
